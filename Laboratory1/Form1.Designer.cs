@@ -33,7 +33,7 @@
             this.AddColumn = new System.Windows.Forms.Button();
             this.RemoveColumn = new System.Windows.Forms.Button();
             this.AddRow = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ExpressionTextBox = new System.Windows.Forms.TextBox();
             this.RemoveRow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,8 @@
             this.DGV.RowTemplate.Height = 24;
             this.DGV.Size = new System.Drawing.Size(898, 408);
             this.DGV.TabIndex = 0;
+            this.DGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellClick);
+            this.DGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellContentClick);
             // 
             // Apply
             // 
@@ -89,12 +91,12 @@
             this.AddRow.UseVisualStyleBackColor = true;
             this.AddRow.Click += new System.EventHandler(this.AddRow_Click);
             // 
-            // textBox1
+            // ExpressionTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 22);
-            this.textBox1.TabIndex = 6;
+            this.ExpressionTextBox.Location = new System.Drawing.Point(12, 24);
+            this.ExpressionTextBox.Name = "ExpressionTextBox";
+            this.ExpressionTextBox.Size = new System.Drawing.Size(225, 22);
+            this.ExpressionTextBox.TabIndex = 6;
             // 
             // RemoveRow
             // 
@@ -112,7 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 492);
             this.Controls.Add(this.RemoveRow);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ExpressionTextBox);
             this.Controls.Add(this.AddRow);
             this.Controls.Add(this.RemoveColumn);
             this.Controls.Add(this.AddColumn);
@@ -134,7 +136,7 @@
         private System.Windows.Forms.Button AddColumn;
         private System.Windows.Forms.Button RemoveColumn;
         private System.Windows.Forms.Button AddRow;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ExpressionTextBox;
         private System.Windows.Forms.Button RemoveRow;
     }
 }
