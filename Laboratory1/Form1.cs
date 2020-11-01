@@ -12,6 +12,7 @@ namespace Laboratory1
 {
     public partial class Form1 : Form
     {
+        private Calculator calculator;
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace Laboratory1
 
             DataGridViewColumn colToInsert;
             int columnCount = 10;
+            calculator = new Calculator(DGV);
             for (int i = 0; i < columnCount; i++)
             {
                 colToInsert = new DataGridViewColumn(new ExpressionCell());
@@ -114,7 +116,14 @@ namespace Laboratory1
             foreach (ExpressionCell cell in DGV.SelectedCells)
             {
                 cell.Expression = ExpressionTextBox.Text;
+                cell.CleanEdges();
             }
+            foreach (ExpressionCell cell in DGV.SelectedCells)
+            {
+                calculator.NameCurentCell = cell;
+                cell.Value = calculator.Evaluate(cell.Expression);
+            }
+
         }
 
         private void GetExpressionFromCell(object sender, DataGridViewCellEventArgs e)
